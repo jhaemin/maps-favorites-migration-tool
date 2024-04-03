@@ -2,9 +2,23 @@
 
 # Maps Favorites Migration Tool
 
-Migrate your favorite places from one map service to another.
+It is an Electron app that helps you to migrate your favorite places from one map service to another.
 
-# TODO
+## Dev
+
+### Install dependencies
+
+```bash
+yarn install
+```
+
+### Run the app
+
+```bash
+yarn start
+```
+
+## TODO
 
 - KAKAO
   - [x] KAKAO -> Naver
