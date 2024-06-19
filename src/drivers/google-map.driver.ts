@@ -1,4 +1,3 @@
-import { Coordinate, LatLng } from '../types/coordinate/coordinate.type';
 import { FavoriteFolder } from '../types/favorite/favorite-folder.type';
 import { FailedFavoriteItem, FavoriteItem } from '../types/favorite/favorite-item.type';
 import { ContentWindow } from '../types/window/content-window.type';
@@ -11,20 +10,6 @@ export class GoogleMapDriver extends AbstractDriver {
 
   public label(): string {
     return '구글맵';
-  }
-
-  public async toLatLng(contentWindow: ContentWindow, coord: Coordinate): Promise<LatLng> {
-    const latLng: [number, number] = await contentWindow.view.webContents.executeJavaScript(
-      //language=js
-      `(function() {
-                    var __tmp = (new kakao.maps.Coords(${coord.x}, ${coord.y})).toLatLng();
-                    return [__tmp.getLat(), __tmp.getLng()];
-                  })();`,
-    );
-    return {
-      lat: latLng[0],
-      lng: latLng[1],
-    };
   }
 
   public async import(contentWindow: ContentWindow): Promise<FavoriteFolder[]> {
